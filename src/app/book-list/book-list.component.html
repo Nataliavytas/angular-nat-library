@@ -8,23 +8,12 @@
         </tr>
     </thead>
     <tbody>
-        <tr>
+
+        <tr *ngFor="let book of books" [ngClass]="{'clearence': book.clearence}">
             <td> {{book.name}} </td>
             <td> {{book.gender}} </td>
-            <td> {{book.price}}</td>
-            <td> {{book.stock}} </td>
-        </tr>
-        <tr>
-            <td> Matilde debe morir </td>
-            <td> Intriga </td>
-            <td> 500$ </td>
-            <td> si </td>
-        </tr>
-        <tr>
-            <td> blablabla </td>
-            <td>sdasad </td>
-            <td>asdsad</td>
-            <td>sadas</td>
+            <td> {{book.price | currency}}</td>
+            <td> <span class="badge badge-danger" *ngIf="book.stock==0"> SIN STOCK </span></td>
         </tr>
     </tbody>
 </table>
