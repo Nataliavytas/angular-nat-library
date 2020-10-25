@@ -14,6 +14,7 @@ export class BookListComponent implements OnInit {
     price: 321,
     stock: 4,
     clearence: false,
+    quantity: 0,
   },
   {
     name : "Matilde debe morir",
@@ -21,6 +22,7 @@ export class BookListComponent implements OnInit {
     price: 221,
     stock: 2,
     clearence: true,
+    quantity: 0,
   },
   {
     name : "Cazadores de Sombras",
@@ -28,11 +30,22 @@ export class BookListComponent implements OnInit {
     price: 20,
     stock: 0,
     clearence: false,
+    quantity: 0,
   }
 ]
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  downQuantity(book: Book): void {
+    if(book.quantity > 0)
+      book.quantity--;
+  }
+
+  upQuantity(book: Book): void {
+    if(book.quantity< book.stock)
+      book.quantity++;
   }
 
 }

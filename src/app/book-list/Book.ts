@@ -4,4 +4,5 @@ export interface Book {
     price: number; 
     stock: number;
     clearence: boolean;
+    quantity: number;
 }
