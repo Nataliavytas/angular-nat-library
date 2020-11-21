@@ -1,4 +1,5 @@
 export interface Book {
+    image:string;
     name: string;
     gender: string;
     price: number; 

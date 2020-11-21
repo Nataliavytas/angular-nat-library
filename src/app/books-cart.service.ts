@@ -17,6 +17,7 @@ export class BooksCartService {
   constructor() { }
 
   addToCart(book: Book) {
+    if(book.quantity != 0){
     let item: Book = this._cartList.find((v1) => v1.name == book.name)
     if(!item){
       this._cartList.push({... book});
@@ -26,5 +27,5 @@ export class BooksCartService {
     console.log(this._cartList);
     this.cartList.next(this._cartList);
   }
-
+  }
 }
