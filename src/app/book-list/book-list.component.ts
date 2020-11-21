@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { BooksCartService } from '../books-cart.service';
 import { Book } from './Book';
 
 @Component({
@@ -33,19 +34,16 @@ export class BookListComponent implements OnInit {
     quantity: 0,
   }
 ]
-  constructor() { }
+  constructor(private cart: BooksCartService) {
+  }
 
   ngOnInit(): void {
   }
 
-  downQuantity(book: Book): void {
-    if(book.quantity > 0)
-      book.quantity--;
-  }
-
-  upQuantity(book: Book): void {
-    if(book.quantity< book.stock)
-      book.quantity++;
+  addToCart(book): void {
+    this.cart.addToCart(book);
+    book.stock -= book.quantity;
+    book.quantity = 0;
   }
 
 }
