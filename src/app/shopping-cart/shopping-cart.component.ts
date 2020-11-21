@@ -12,7 +12,6 @@ export class ShoppingCartComponent implements OnInit {
 
   cartList$: Observable<Book[]>;
   constructor(private cart: BooksCartService) {
-   // cart.cartList.subscribe(c  => this.cartList = c);
    this.cartList$ = cart.cartList.asObservable();
   }
 

@@ -1,4 +1,4 @@
-<h1 class="m-4"> Lista de Libros</h1>
+<h1 class="m-4 text-center"> Lista de Libros</h1>
 <table class="table text-center">
     <thead>
         <tr>
@@ -7,6 +7,7 @@
             <th> Precio </th>
             <th> Stock </th>
             <th width="20%">Quantity</th>
+            <th> Buy</th>
         </tr>
     </thead>
     <tbody>
@@ -15,11 +16,13 @@
             <td> {{book.name}} </td>
             <td> {{book.gender}} </td>
             <td> {{book.price | currency}}</td>
-            <td> <span class="badge badge-danger" *ngIf="book.stock==0"> SIN STOCK </span></td>
+            <td> <span class="badge badge-danger" *ngIf="book.stock==0"> NO STOCK </span>
+                <span class="badge badge-success" *ngIf="book.stock!=0"> IN STOCK </span></td>
             <td>
                 <app-input-integer [(quantity)]="book.quantity" [max]="book.stock" *ngIf="book.stock"></app-input-integer>
-                <small> {{book.quantity}}</small>
-                <button class="btn" (click)="addToCart(book)"> Comprar </button>
+            </td>
+            <td>
+                <button class="btn btn-dark" (click)="addToCart(book)"> Comprar </button>
             </td>
         </tr>
     </tbody>
